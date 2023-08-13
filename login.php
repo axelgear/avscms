@@ -22,6 +22,9 @@ if ( isset($_POST['submit_login']) ) {
         if ( $conn->Affected_Rows() == 1 ) {
             $user   = $rs->getrows();
 			$password = md5($password);
+                        if ($user['0']['emailverified'] == 'no') { 
+                        $errors[] = 'Please verify your email to login!';
+                        } else {
 			if ( $password == $user['0']['pwd'] ) {
                 $yesterday  = time() - 86400;
                 $sql_add    = NULL;
@@ -55,6 +58,7 @@ if ( isset($_POST['submit_login']) ) {
             } else {
                 $errors[] = $lang['login.invalid'];
             }
+        }
         } else {
             $errors[] = $lang['login.invalid'];
         }
