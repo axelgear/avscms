@@ -2,7 +2,7 @@
 
 This is a modified source of AVSCMS 8.2
 
-   Added installation instructions, rss feed, removed some malicious code, updated Daish language files.
+   Added installation instructions, rss feed, removed some malicious code, updated Danish language files.
 
 AVSCMS's Official [website](https://www.avscms.com).
 
