@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>AVSCMS Installation Guide</title>
+<style type="text/css">
+<!--
+h1 {
+	font-family: "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
+	font-size: 29px;
+	color: #FF3366;
+	letter-spacing: -2px;
+	font-weight: normal;
+}
+h2 {
+	font-family: "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
+	font-size: 23px;
+	color: #999999;
+	letter-spacing: -1px;
+	font-weight: normal;
+}
+body {
+	font-family: "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #444;
+}
+span.code {
+display: block;
+width: 600px;
+border: 1px dashed #bbb;
+padding: 8px;
+margin-top: 10px;
+font: normal 12px "Courier New", Courier, monospace;
+color:#CC3366;
+background-color:#fcfcfc;
+}
+.subtitle {
+	font-size: 17px
+}
+.style1 {
+	font-size: 19px;
+	color: #FF3366;
+}
+
+-->
+</style>
+</head>
+
+<body>
+<h1>AVSCMS Apache Documentation</h1>
+<h2>I. Server Requirements</h2>
+<p>Please make sure that your server meets the following configuration.<br />
+
+  If you are unsure, contact your hosting company / server administrator for<br />
+confirmation.</p>
+<ul>
+  <li><strong>Linux Server</strong><br />
+    <br />
+  </li>
+  <li><strong>Apache Web Server</strong> <br />
+    <br />
+    <ul>
+      <li>Support for Mod_rewrite<br />
+      </li>
+      <li>Move&nbsp;.htaccess into basedir</li>
+<br />
+      </li>
+    </ul>
+  </li>
+  <li><strong>PHP</strong> 5.x / 7.x (mod_php/php-fpm)<br />
+    <br />
+    <ul>
+      <li>Support for GD2 Library</li>
+      <li>Support for MySQL / MySQLi</li>
+      <li>Support for Curl</li>
+      <li>Support for zip</li>
+    </ul>
+    <blockquote>
+      <h4>        Recommended PHP Configuration</h4>
+    </blockquote>
+    <ul>
+      <li>safe_mode off</li>
+      <li>open_basedir off</li>
+      <li>max_execution_time 7200</li>
+      <li>max_input_time 7200</li>
+      <li>memory_limit (with 512MB more then the maximum video upload size)</li>
+      <li>post_max_size 1024M (maximum video upload size)</li>
+      <li>upload_max_size 1024M(maximum video upload size)</li>
+      <li>shell_exec() and exec() should be allowed</li>
+      <li>register_argc_argv on</li>
+        <br />
+      </li>
+    </ul>
+  </li>
+  <li><strong>PHP CLI 5.6+</strong><br />
+    <br />
+  </li>
+  <li><strong>FFmpeg</strong> (Recommended Version: 4+)<br /><br /></li>
+</ul>
+<h2>II. Installation and Configuration Instructions</h2>
+<p>
+  <label>
+  <input type="checkbox" name="checkbox" id="checkbox" />
+  </label>
+  1. Edit <strong>include/config.paths.php</strong> and set <strong>$config['BASE_URL']</strong> to your site's url.<br />
+  <br />
+  <input type="checkbox" name="checkbox2" id="checkbox2" />
+  2. <strong>OPTIONAL:</strong> If you use a subdirectory for your installion set <strong>$config['RELATIVE']</strong> to your subdirectory (eg: $config['RELATIVE'] = '/subdirectory')!<br />
+  <br />
+  <input type="checkbox" name="checkbox3" id="checkbox3" />
+  3. <strong>OPTIONAL:</strong> If you use a subdirectory for your installation edit <strong>loader.php</strong> and set <strong>$relative</strong> to your subdirectory (eg: $relative = '/subdirectory')!<br />
+  <br />
+  <input type="checkbox" name="checkbox4" id="checkbox4" />
+  4. <strong>Create a database</strong>. Edit <strong>include/config.db.php</strong> and set the database information (name, user and password).<br />
+  <br />
+  <input type="checkbox" name="checkbox5" id="checkbox5" />
+  5. Import the sql dump from <strong>avs.sql</strong> in your database (most likely using phpMyAdmin).<br />
+  <br />
+  <input type="checkbox" name="checkbox6" id="checkbox6" />
+  6. <strong>Upload</strong> all files and folders from <strong>/upload</strong> to your server.<br />
+  <br />
+  <input type="checkbox" name="checkbox7" id="checkbox7" />
+7. Chmod following files and directories to 0777. You can also fix the file/directory permissions from the admin panel: <i>Settings > General > System Check</i></p>
+<blockquote>  <span class="code">/include/config.local.php<br />
+  /cache/frontend<br />
+  /cache/backend<br />
+  /images/logo<br />
+  /images/notice_images<br />
+  /images/notice_images/thumbs<br /> 
+  /media/albums<br />
+  /media/categories/album<br />
+  /media/categories/video<br />
+  /media/csv<br />  
+  /media/photos<br />
+  /media/photos/tmb<br />
+  /media/player/logo<br />  
+  /media/users<br />
+  /media/users/orig<br />
+  /media/videos/tmb<br />
+  /media/videos/vid<br />
+  /media/videos/h264<br />  
+  /templates/backend/default/analytics/analytics.tpl <br />
+  /templates/emails<br />
+  /templates/emails/*.tpl<br />
+  /templates/frontend/(your_template)/static/*.tpl<br />
+  /tmp/albums<br />
+  /tmp/avatars<br />
+  /tmp/downloads<br />
+  /tmp/logs<br />
+  /tmp/sessions<br />
+  /tmp/thumbs<br />
+  /tmp/uploader<br />
+  /tmp/update<br />
+  /aembed.sh<br />
+</span> </blockquote>
+ <br /><input type="checkbox" name="checkbox8" id="checkbox8" />
+	8. Go to <strong>domain.com/siteadmin</strong> (login using: admin/admin) and start configuring your website.
+<p>
+  <input type="checkbox" name="checkbox9" id="checkbox9" />
+  9. You can use the Google Video Sitemap generator using the link: http://www.yourdomain.com/sitemap.php<br />
+</p>
+<p>
+  <input type="checkbox" name="checkbox10" id="checkbox10" />
+  10. Enable non-www to www redirection (domain.com to www.domain.com) by editing the .htaccess file and replacing "domain.com" with your domain name.<br />
+  <br />
+</p>
+<h2>III. Customer Support</h2>
+<p>  If you need help installing or configuring your script, we offer <strong>professional installation
+  service</strong> for a flat-fee of $29. We can also <strong>install the required modules and configure
+  your server</strong> for a flat-fee of $49. Please contact us at <strong>office@adultvideoscript.com</strong> or using
+the online form.</p>
+
+<p><br />
+  Website: <a href="http://www.avscms.com">http://www.avscms.com</a><br />
+  Support Center: <a href="http://helpdesk.adultvideoscript.com">http://helpdesk.adultvideoscript.com</a><br />
+</p>
+</body>
+</html>
