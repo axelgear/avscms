@@ -11,7 +11,7 @@ Detailed changes are in the [changelog](https://github.com/avscms/avscms/commits
 ## What is AVSCMS?
 
 AVSCMS! is a Content Management System (CMS) which enables you to build websites and powerful video sharing applications.
-It is a simple and powerful web server application which requires a webserver with PHP and either MySQL to run. 
+It is a simple and powerful web server application which requires a webserver with Apache/Nginx, PHP, MySQL and FFMPEG (if you want to host videos) to run. 
 
 You can find full technical requirements [here](https://www.avscms.com/product/features/).
 
