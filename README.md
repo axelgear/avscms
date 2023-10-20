@@ -2,6 +2,8 @@
 
 This is a modified source of AVSCMS 8.2
 
+   Added installation instructions, rss feed, removed some malicious code, updated Daish language files.
+
 AVSCMS's Official [website](https://www.avscms.com).
 
 Detailed changes are in the [changelog](https://github.com/avscms/avscms/commits/main).
