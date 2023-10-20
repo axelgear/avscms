@@ -2,7 +2,13 @@
 
 This is a modified source of AVSCMS 8.2
 
-   Added Apache and Nginx installation instructions, added rss feed, removed some malicious code, code to prevent login for unverified users, updated Danish language files.
+<strong>Added:</strong>
+<li>Apache and Nginx installation instructions</li>
+<li>RSS feed</li>
+<li>Removed some malicious code</li>
+<li>Code to prevent login for unverified users</li>
+<li>Updated Danish language files</li>
+<br />
 
 AVSCMS's Official [website](https://www.avscms.com).
 
