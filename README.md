@@ -2,7 +2,7 @@
 
 This is a modified source of AVSCMS 8.2
 
-<strong>Added:</strong>
+##  <strong>Added:</strong>
 <li>Apache and Nginx installation instructions</li>
 <li>RSS feed</li>
 <li>Removed some malicious code</li>
