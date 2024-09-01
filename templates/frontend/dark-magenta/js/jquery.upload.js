@@ -265,7 +265,7 @@ $("#upload_video_category").select2({
     width: "100%", 
     placeholder: "Select a category",
     minimumInputLength: 1,
-    maximumSelectionLength: 7,
+    maximumSelectionLength: 4,
     allowClear: true,
   });
 
