@@ -12,6 +12,8 @@ var lang_submit = "{t c='upload.video_submit'}";
 <script type="text/javascript" src="{$relative_tpl}/js/plupload.full.min.js"></script>
 <script type="text/javascript" src="{$relative_tpl}/js/jquery.upload.js"></script>
 <script type="text/javascript" src="{$relative_tpl}/js/jquery.form.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-beta.1/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-beta.1/js/select2.min.js"></script>
 <div class="container mt-3 mb-3">
 	<div class="well-filters">
 		<h1>{t c='upload.video_title'}</h1>
@@ -68,13 +70,15 @@ var lang_submit = "{t c='upload.video_submit'}";
 
 					<div id="upload_category" class="form-group">
 						<label for="upload_video_category">{t c='global.category'}</label>
-						<select name="video_category" id="upload_video_category" class="form-control">
-							<option value="0"{if $video.category == '0'} selected="selected"{/if}>---</option>
+						<select name="video_category[]" id="upload_video_category" class="form-control select2" multiple="multiple">
 							{section name=i loop=$categories}
-							<option value="{$categories[i].CHID}"{if $video.category == $categories[i].CHID} selected="selected"{/if}>{$categories[i].name|escape:'html'}</option>
+								<option value="{$categories[i].CHID}" {if $video.category == $categories[i].CHID}
+									selected="selected" {/if}>{$categories[i].name|escape:'html'}</option>
 							{/section}
 						</select>
-						<div id="video_category_error" class="text-danger text-small" style="display: none;">{t c='global.category_empty'}</div>
+						<div id="video_category_error" class="text-danger text-small" style="display: none;">
+							{t c='global.category_empty'}
+						</div>
 					</div>
 			
 					<div class="form-group">
