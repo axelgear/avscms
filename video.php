@@ -124,6 +124,42 @@ if ($video['embed_code'] == '') {
 	//---- VJS END
 }
 
+$sql = "SELECT channel, channel2, channel3, channel4
+        FROM video 
+        WHERE VID = $vid 
+        LIMIT 1";
+$rs = $conn->execute($sql);
+$categories = [];
+if (!$rs->EOF) {
+    $categories[] = $rs->fields['channel'];  
+    for ($i = 2; $i <= 4; $i++) {
+        $field = 'channel' . $i;
+        if (isset($rs->fields[$field])) {
+            $categories[] = $rs->fields[$field];
+        }
+    }
+}
+
+$categories = array_unique($categories);
+
+$sql = "SELECT CHID, name, slug FROM channel";
+$rs = $conn->execute($sql);
+
+$channelData  = [];
+while (!$rs->EOF) {
+    $chid = $rs->fields['CHID'];
+    $name = $rs->fields['name'];
+	$slug = $rs->fields['slug'];
+    $channelData[$chid] = ['name' => $name, 'slug' => $slug];
+    $rs->MoveNext();
+}
+
+$categoryNames = [];
+foreach ($categories as $categoryId) {
+    if (isset($channelData[$categoryId])) {
+        $categoryNames[] = $channelData[$categoryId];
+    }
+}
 
 $guest_limit	    = false;
 
