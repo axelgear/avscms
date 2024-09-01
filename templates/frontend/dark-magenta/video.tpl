@@ -247,7 +247,16 @@ $( document ).ready(function() {
 						<div class="mt-3 overflow-hidden">
 							{$video.description|nl2br}
 						</div>
-					{/if}					
+					{/if}	
+					<div class="mt-3 overflow-hidden">
+							{assign var='categories' value=$categories}
+							Categories:
+							{section name=i loop=$categories}
+								<a class="category"
+									href="{$relative}/videos/{$categories[i].slug}">{$categories[i].name}</a>{if !$smarty.section.i.last},
+								{/if}
+							{/section}
+						</div>
 					<div class="mt-3 overflow-hidden">
 						{assign var='keywords' value=$video.keyword}
 						{t c='global.tags'}:
