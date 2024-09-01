@@ -34,13 +34,20 @@ if ( isset($_POST['video_upload_started']) ) {
 
 		$filter     	= new VFilter();
 		$title      	= $filter->get('video_title');
-		$category   	= $filter->get('video_category', 'INTEGER');
+		//$category   	= $filter->get('video_category', 'INTEGER');
 		$keywords   	= $filter->get('video_tags');
 		$privacy    	= $filter->get('video_privacy');
 		$anonymous  	= $filter->get('video_anonymous');
 		$description 	= $filter->get('video_description');
 		$fileName 		= $filter->get('video_filename');
 		$unique_id 		= $filter->get('unique_id');
+	
+		$categories = isset($_POST['video_category']) ? $_POST['video_category'] : [];
+
+		$category = isset($categories[0]) ? (int) $categories[0] : 0;
+		$category2 = isset($categories[1]) ? (int) $categories[1] : 0;
+		$category3 = isset($categories[2]) ? (int) $categories[2] : 0;
+		$category4 = isset($categories[3]) ? (int) $categories[3] : 0;
 
 	
 
@@ -69,7 +76,10 @@ if ( isset($_POST['video_upload_started']) ) {
 
 			$sql        = 	"INSERT INTO video 
 							SET UID = " .$uid. ", title = " .$conn->qStr($title). ",
-							channel = " .$category. ", keyword = " .$conn->qStr($keywords). ",
+							channel = " .$category. ",
+							channel2 = " . $category2 . ",
+							channel3 = " . $category3 . ",
+							channel4 = " . $category4 . ", keyword = " .$conn->qStr($keywords). ",
 							description = ".$conn->qStr($description).", 
 							space = '" .$space. "', addtime = '" .time(). "', adddate = '" .date('Y-m-d'). "', vkey = '" .mt_rand(). "', 
 							type = '" .$video['privacy']. "', active = '2'"; 
