@@ -8,6 +8,7 @@ $config['noreply_email'] = 'noreply@yourdomain.com';
 $config['admin_email'] = 'admin@yourdomain.com';
 $config['videos_per_page'] = '24';
 $config['albums_per_page'] = '12';
+$config['categories_per_page'] = '12';
 $config['users_per_page'] = '24';
 $config['blogs_per_page'] = '10';
 $config['watched_per_page'] = '12';
