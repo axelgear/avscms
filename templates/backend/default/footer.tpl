@@ -69,6 +69,8 @@
 	<script src="{$relative_tpl}/assets/plugins/jquery-notifications/js/messenger-theme-future.js" type="text/javascript"></script>
 	<script src="{$relative_tpl}/assets/js/admin/jquery.manage-videos.js" type="text/javascript"></script>
 	<script src="{$relative_tpl}/assets/js/admin/jquery.comments.js" type="text/javascript"></script>	
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-beta.1/css/select2.min.css" rel="stylesheet" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-beta.1/js/select2.min.js"></script>
 	<script type="text/javascript">
 		var conf_remove_bb = "{$thumbnail_remove_bb}";
 		var conf_keep_ar   = "{$thumbnail_keep_ar}";
