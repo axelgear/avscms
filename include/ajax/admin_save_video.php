@@ -41,7 +41,6 @@ if (isset($data['category']) && is_array($data['category'])) {
     if (isset($data['category'][1])) $channel2 = trim($data['category'][1]);
     if (isset($data['category'][2])) $channel3 = trim($data['category'][2]);
     if (isset($data['category'][3])) $channel4 = trim($data['category'][3]);
-    if (isset($data['category'][4])) $channel5 = trim($data['category'][4]);
 }
 settype($vid, 'integer');
 settype($viewnumber, 'integer');
