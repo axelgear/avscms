@@ -34,7 +34,7 @@ $viewnumber     = trim($data['viewnumber']);
 $active         = trim($data['active']);
 $server			= trim($data['server']);
 // Set default channel values
-$channel = $channel2 = $channel3 = $channel4 = $channel5 = $channel6 = $channel7 = $channel8 = null;
+$channel = $channel2 = $channel3 = $channel4 = null;
 // Assign category values to the correct variables
 if (isset($data['category']) && is_array($data['category'])) {
     if (isset($data['category'][0])) $channel = trim($data['category'][0]);
